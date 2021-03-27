@@ -3,12 +3,12 @@ import { JobData } from "./JobData";
 
 function Listing(props) {
   return (
-    <div>
+    <div className="border-red-600 border-8">
       {JobData.map((jobdata, index) => {
         return (
           <div
             key={index}
-            className="relative md:flex md:justify-between bg-cyan-filter mx-4 my-20 p-8 rounded-lg border-l-4 border-dark-cyan shadow-2xl"
+            className="relative md:flex md:justify-between bg-white mx-4 my-20 p-8 rounded-lg border-l-4 border-dark-cyan shadow-2xl"
           >
             <div className="md:flex">
               <div className="absolute md:static -top-10 left-0">
@@ -16,7 +16,7 @@ function Listing(props) {
               </div>
               <ul className="flex mt-6">
                 <li className="text-dark-cyan font-bold">{jobdata.company}</li>
-                <li>{jobdata.new}</li>
+                <li className="text-dark-cyan font-bold">{}</li>
                 <li>{jobdata.featured}</li>
               </ul>
               <h3 className="pt-3 font-bold hover:text-dark-cyan ">

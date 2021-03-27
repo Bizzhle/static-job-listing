@@ -27,14 +27,8 @@ function Home(props) {
   };
 
   return (
-    <div className=" font-spartan">
+    <div className="bg-cyan-filter font-spartan">
       <Header />
-      <SearchBar
-        filterValues={tags}
-        removeTags={removeTags}
-        reset={reset}
-        numFilters={tags.length}
-      />
 
       <div>
         <Listing onClick={(tags) => addTags(tags)} />
