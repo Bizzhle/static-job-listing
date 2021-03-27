@@ -3,7 +3,6 @@ import "./App.css";
 import Header from "./components/Header";
 import Card from "./components/Card";
 import Tag from "./components/Tag";
-// import Tag from "./components/Tag";
 
 function App() {
   const [data, setData] = useState([]);
@@ -66,7 +65,7 @@ function App() {
           className={
             tags.length === 0
               ? "hidden"
-              : "absolute -top-9 left-1/2 transform -translate-x-1/2  items-center flex justify-between p-2 bg-white w-9/12 rounded-md"
+              : "absolute -top-16 md:-top-9 left-1/2 transform -translate-x-1/2  items-center flex justify-between p-2 bg-white w-9/12 rounded-md"
           }
         >
           <div className="flex flex-wrap">
@@ -81,7 +80,7 @@ function App() {
           </div>
           <span
             onClick={allClear}
-            className="flex items-center cursor-pointer px-2 bg-dark-cyan rounded text-white font-semibold leading-tight "
+            className="flex items-center cursor-pointer px-2 bg-cyan-dark hover:underline rounded text-white font-semibold leading-tight "
           >
             clear
           </span>

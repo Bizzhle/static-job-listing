@@ -6,14 +6,22 @@ function Tag({ keyword, deleteTags, inFilter }) {
     deleteTags(keyword);
   }
   return (
-    <div>
-      <button
+    <button className="flex rounded-md mx-1 my-1 cursor-pointer  bg-cyan-light ">
+      <span
         onClick={handleClick}
-        className=" mx-1 p-2 rounded-md font-semibold bg-cyan-light text-dark-cyan border-red-600 border-2"
+        className=" px-2 py-2 font-semibold text-dark-cyan "
       >
         {keyword}
-      </button>
-    </div>
+      </span>
+      <MdCancel
+        className={
+          inFilter
+            ? "bg-dark-cyan text-white w-full h-full px-2 rounded-r-md"
+            : "hidden"
+        }
+        onClick={handleClick}
+      />
+    </button>
   );
 }
 

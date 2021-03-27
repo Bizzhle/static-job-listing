@@ -30,7 +30,7 @@ function Card(props) {
   }
 
   return (
-    <div className="md:max-w-6xl m-auto relative pt-8 ">
+    <div className="md:max-w-6xl m-auto relative pt-16 md:pt-8 ">
       {props.data &&
         props.data.map((item, index) => {
           return (
