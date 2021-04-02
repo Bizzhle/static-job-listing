@@ -3,12 +3,27 @@ import "./App.css";
 import Header from "./components/Header";
 import Card from "./components/Card";
 import Tag from "./components/Tag";
+import datajs from "./data.json";
 
 function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(datajs);
   const [tags, setTags] = useState([]);
-  console.log(data);
-  console.log(tags);
+
+  const initialState = [];
+
+  // useEffect(() => {
+  //   getData();
+  // }, [setData]);
+
+  // const getData = () => {
+  //   fetch("data.json")
+  //     .then(function (response) {
+  //       return response.json();
+  //     })
+  //     .then(function (myJson) {
+  //       setData(myJson);
+  //     });
+  // };
 
   function addTags(newTag) {
     const tagArray = [...tags, newTag];
@@ -18,7 +33,7 @@ function App() {
 
   function handleFilter(tagArray) {
     setData(
-      data.filter((item) => {
+      datajs.filter((item) => {
         const keywords = [item.role, item.level];
         if ("languages" in item) keywords.push(...item.languages);
         if ("tools" in item) keywords.push(...item.tools);
@@ -36,23 +51,10 @@ function App() {
     handleFilter(tagList);
   }
 
-  function allClear() {
-    setTags([]);
+  const allClear = (e) => {
+    e.preventDefault();
+    setTags(initialState);
     handleFilter([]);
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = () => {
-    fetch("data.json")
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (myJson) {
-        setData(myJson);
-      });
   };
 
   return (
@@ -79,7 +81,7 @@ function App() {
             ))}
           </div>
           <span
-            onClick={allClear}
+            onClick={(e) => allClear(e)}
             className="flex items-center cursor-pointer px-2 bg-cyan-dark hover:underline rounded text-white font-semibold leading-tight "
           >
             clear
